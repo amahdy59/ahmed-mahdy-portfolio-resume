@@ -47,6 +47,7 @@ Upload these to GitHub:
 - `styles.css`
 - `script.js`
 - `assets/`
+- If `assets/` is not available, upload `public/assets/`
 - `package.json`
 - `vercel.json`
 - `build.mjs`
