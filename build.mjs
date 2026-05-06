@@ -22,19 +22,11 @@ async function copyDirectory(source, destination) {
   }
 }
 
-for (const requiredPath of ["index.html", "styles.css", "script.js"]) {
+for (const requiredPath of ["index.html", "styles.css", "script.js", "assets"]) {
   if (!existsSync(join(root, requiredPath))) {
     throw new Error(`Missing required file or folder: ${requiredPath}`);
   }
 }
-
-const primaryAssets = join(root, "assets");
-const publicAssets = join(root, "public", "assets");
-const assetSource = existsSync(primaryAssets)
-  ? primaryAssets
-  : existsSync(publicAssets)
-    ? publicAssets
-    : null;
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
@@ -42,11 +34,6 @@ await mkdir(dist, { recursive: true });
 await copyFile(join(root, "index.html"), join(dist, "index.html"));
 await copyFile(join(root, "styles.css"), join(dist, "styles.css"));
 await copyFile(join(root, "script.js"), join(dist, "script.js"));
-
-if (assetSource) {
-  await copyDirectory(assetSource, join(dist, "assets"));
-} else {
-  console.warn("No assets folder found. Deploying without image assets.");
-}
+await copyDirectory(join(root, "assets"), join(dist, "assets"));
 
 console.log("Static resume built to dist/");

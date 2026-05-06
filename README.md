@@ -14,18 +14,18 @@ Responsive portfolio resume for Ahmed Mahdy, UX Designer and Data Analyst, built
 
 ## Suggested Topics
 
-`portfolio`, `resume`, `ux-design`, `data-analytics`, `data-visualization`, `astro`, `static-site`
+`portfolio`, `resume`, `ux-design`, `data-analytics`, `data-visualization`, `static-site`
 
 ## Recommended Hosting
 
-Use Vercel for the public portfolio link. The site is deployed as a static resume webpage, so the build simply copies the production files into `dist/`.
+Use Vercel for the public portfolio link. The site is deployed as a static resume webpage, so the build copies the production files into `dist/`.
 
 - Framework preset: Other
 - Build command: `npm run build`
 - Output directory: `dist`
 - Node version: default is fine
 
-If Vercel says `The Output Directory "dist" is empty`, the build command did not run or the wrong root folder was selected. Make sure the Vercel root directory is the folder that contains `package.json`, `index.html`, `styles.css`, and `script.js`.
+If Vercel says `The Output Directory "dist" is empty`, the build command did not run or the wrong root folder was selected. Make sure the Vercel root directory is the folder that contains `package.json`, `index.html`, `styles.css`, `script.js`, and `assets/`.
 
 ## Local Development
 
@@ -47,7 +47,6 @@ Upload these to GitHub:
 - `styles.css`
 - `script.js`
 - `assets/`
-- If `assets/` is not available, upload `public/assets/`
 - `package.json`
 - `vercel.json`
 - `build.mjs`
