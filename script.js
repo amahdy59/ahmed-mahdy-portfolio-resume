@@ -5,6 +5,17 @@ const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const toast = document.createElement("div");
 let toastTimer;
 
+document.querySelectorAll("img[data-fallback-src]").forEach((image) => {
+  image.addEventListener(
+    "error",
+    () => {
+      image.src = image.dataset.fallbackSrc;
+      image.removeAttribute("data-fallback-src");
+    },
+    { once: true }
+  );
+});
+
 toast.className = "copy-toast";
 toast.setAttribute("role", "status");
 toast.setAttribute("aria-live", "polite");
